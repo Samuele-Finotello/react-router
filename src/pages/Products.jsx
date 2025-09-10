@@ -18,14 +18,18 @@ const Products = () => {
       <div className="row">
         {products.map(product => {
           return (
-            <div className="col-4">
-              <div className="card">
+            <div className="col-4 grid" key={product.id}>
+              <div className="card my-4">
+                <p className="text-center fs-4">{product.category}</p>
                 <div className="card-image">
-                  <img className="img-fluid" src={product.image} alt={product.title} />
+                  <img src={product.image} alt={product.title} />
                 </div>
                 <div className="card-body">
                   <h3>{product.title}</h3>
+                  <span className="fs-4">{product.price} &euro;</span>
                   <p>{product.description}</p>
+                  <span className="text-center fs-5">⭐ {product.rating.rate}</span>
+                  <span className="text-center ms-2 fs-5">({product.rating.count} venduti)</span>
                 </div>
               </div>
             </div>
