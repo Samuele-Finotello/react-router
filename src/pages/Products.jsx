@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const Products = () => {
 
@@ -21,9 +22,11 @@ const Products = () => {
             <div className="col-4 grid" key={product.id}>
               <div className="card my-4">
                 <p className="text-center fs-4">{product.category}</p>
-                <div className="card-image">
-                  <img src={product.image} alt={product.title} />
-                </div>
+                <Link to={`/products/${product.id}`}>
+                  <div className="card-image">
+                    <img src={product.image} alt={product.title} />
+                  </div>
+                </Link>
                 <div className="card-body">
                   <h3>{product.title}</h3>
                   <span className="fs-4">{product.price} &euro;</span>
